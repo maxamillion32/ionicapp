@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="no-scroll" padding>
+
+
+<div *ngIf="homeServ.doesHaveAHome()==false">
+  <h3> You don't have any homes right now </h3>
+ </div>
+
+ <div *ngIf= "homeServ.doesHaveAHome()==true">
+ <h3 >Your homes </h3>
+
+<ion-list>
+	<ion-card *ngFor="let home of homes">
+  		<ion-card-header>
+    	<h2>{{ home.name }} </h2><p> {{ home.description }} </p>
+  	</ion-card-header>
+  <ion-list>
+    <button ion-item (click)="viewHome(home._id)">
+      <ion-icon name="home" item-left></ion-icon>
+      View Home
+     <ion-icon name="ios-arrow-forward" item-right></ion-icon>
+    </button>
+     <button ion-item (click)="editHome(home._id,home.name,home.description)">
+      <ion-icon name="clipboard" item-left></ion-icon>
+      Edit Home
+       <ion-icon name="ios-arrow-forward" item-right></ion-icon>
+    </button>
+    <button ion-item (click) ="deleteHome(home._id)">
+      <ion-icon name="trash" item-left></ion-icon>
+      Delete
+       <ion-icon name="ios-arrow-forward" item-right></ion-icon>
+    </button>
+
+    </ion-list>
+</ion-card>
+</ion-list>
+
+  
+
+ </div>
+  
+  
+</ion-content>
+<ion-fab right bottom>
+    <button ion-fab color="light" (click)="createHome()"><ion-icon name="add"></ion-icon></button>
+
+ </ion-fab>

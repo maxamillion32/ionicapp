@@ -1,0 +1,77 @@
+<!--
+  Generated template for the Homedata page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Your home babe</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="card-background-page" padding >
+<div *ngIf="firstTimeView==true">
+
+
+  <ion-card>
+    <img src="http://media.gettyimages.com/videos/large-suburban-home-at-night-with-illuminated-interior-temple-texas-video-id82146617?s=640x640"/>
+    <div class="card-title">Welcome</div>
+    <div class="card-subtitle">You are about to setup your home and you are gonna enjoy this ride.</div>
+  </ion-card>
+  	
+	<button ion-button icon-left (click)="initializeSetup()">
+  	<ion-icon name="home"></ion-icon>
+  	Kick start your home!
+   
+	</button>
+ 
+ 
+
+</div>
+<div *ngIf = "firstTimeView == false">
+<button ion-button color="light" (click)="tapEvents()">Light</button>
+
+  <div style="  display: flex; flex-wrap: wrap; align-items: stretch;">
+
+
+      <div class="card-room" *ngFor="let room of room_data;let i=index" style="flex: 0 0 calc( 100% / 3 - 2px );"><ion-card>
+          <ion-card-title>
+            {{room.name}}
+          </ion-card-title>
+        
+      </ion-card></div>
+    
+   
+         <div class="add-card"><ion-card (tap)="tapEvents($event)"> 
+      
+   
+            <ion-card-header>
+      
+              Add a room
+             </ion-card-header>
+            
+          </ion-card></div>
+          </div>
+    
+    <ion-card (tap)="addRoomToHome()">
+  <ion-item>
+    Tapped:  times
+  </ion-item>
+</ion-card>
+
+
+<ion-tabs>
+   
+    <ion-tab tabIcon="contact" [root]="tab1"></ion-tab>
+    <ion-tab tabIcon="home" [root]="tab2"></ion-tab>
+    
+ 
+  </ion-tabs>
+</div>
+
+
+</ion-content>
