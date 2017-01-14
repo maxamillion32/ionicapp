@@ -1,0 +1,34 @@
+<!--
+  Generated template for the Appliances page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content padding>
+
+
+<div style="  display: flex; flex-wrap: wrap; align-items: stretch;">
+
+      <div class="card-room" *ngFor="let appliance of appliance_data;let i=index" style="flex: 0 0 calc( 100% / 3 - 2px );">
+
+      <ion-card (press)="pressApplianceEvent(appliance)" (tap)="tapApplianceEvent(appliance)">
+          <ion-card-header>
+            {{appliance.name}}
+          </ion-card-header>
+        
+      </ion-card></div>
+    
+   
+         <div class="add-card"><ion-card (tap)="tapEvents($event)"> 
+      
+   
+            <ion-card-header>
+      
+              Add
+             </ion-card-header>
+            
+          </ion-card></div>
+          </div>
+</ion-content>

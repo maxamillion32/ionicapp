@@ -33,35 +33,9 @@
 
 </div>
 <div *ngIf = "firstTimeView == false">
-<button ion-button color="light" (click)="tapEvents()">Light</button>
-
-  <div style="  display: flex; flex-wrap: wrap; align-items: stretch;">
 
 
-      <div class="card-room" *ngFor="let room of room_data;let i=index" style="flex: 0 0 calc( 100% / 3 - 2px );"><ion-card>
-          <ion-card-title>
-            {{room.name}}
-          </ion-card-title>
-        
-      </ion-card></div>
-    
-   
-         <div class="add-card"><ion-card (tap)="tapEvents($event)"> 
-      
-   
-            <ion-card-header>
-      
-              Add a room
-             </ion-card-header>
-            
-          </ion-card></div>
-          </div>
-    
-    <ion-card (tap)="addRoomToHome()">
-  <ion-item>
-    Tapped:  times
-  </ion-item>
-</ion-card>
+  
 
 
 <ion-tabs>

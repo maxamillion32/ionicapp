@@ -10,8 +10,8 @@
 <ion-content padding >
 <h3> Users </h3>
 
-<ion-list *ngFor="let user of user_data">
-  <ion-item *ngIf="user.status==1" >
+<ion-list *ngFor="let user of user_data" outline>
+  <ion-item *ngIf="user.status==1" (press)="pressUserEvent(user)">
     <ion-avatar item-left>
       <img src="https://www.percona.com/live/data-performance-conference-2016/sites/percona.com.live.data-performance-conference-2016/themes/pl2015/img/unknown-speaker.gif">
     </ion-avatar>
@@ -20,8 +20,8 @@
     <button ion-button item-right >Active</button>
   </ion-item>
 </ion-list>
-<ion-list *ngFor="let user of user_data outline">
-  <ion-item *ngIf="user.status==0">
+<ion-list *ngFor="let user of user_data  outline">
+  <ion-item *ngIf="user.status==0" (press)="pressUserEvent(user)">
     <ion-avatar item-left>
       <img src="https://www.percona.com/live/data-performance-conference-2016/sites/percona.com.live.data-performance-conference-2016/themes/pl2015/img/unknown-speaker.gif">
     </ion-avatar>
@@ -32,5 +32,5 @@
     
 </ion-list>
 
-<button ion-button color="light" full>Add User</button>
+<button ion-button color="light" full (tap)="tapAddUser($event)" >Add User</button>
 </ion-content>

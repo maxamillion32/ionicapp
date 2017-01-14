@@ -4,6 +4,8 @@ import { HomeService } from '../../providers/homeservice';
 import { HomeViewService } from '../../providers/homeviewservice';
 import { HomePage } from '../home/home';
 import { HomeUsersPage } from '../homeusers/homeusers';
+import { ShareService } from '../../services/ShareService';
+import { RoomsPage } from '../rooms/rooms';
 /*
   Generated class for the Homedata page.
 
@@ -25,7 +27,9 @@ export class HomeViewPage {
     private skipRoom =false;
   	constructor(public loadingCtrl: LoadingController, public toastCtrl:ToastController,public alertCtrl:AlertController, private homeViewServ: HomeViewService, private homeServ: HomeService, public navCtrl: NavController, public navParams: NavParams) {
   			this.tab1 = HomeUsersPage;
-  			this.tab2 = this;
+  			this.tab2 = RoomsPage;
+
+
   		if(this.homeViewServ.isFirstTimeView(this.data)) {
   			this.firstTimeView = true;
   			this.count = 0;
@@ -33,11 +37,7 @@ export class HomeViewPage {
   			 			
   		}
 
-  		else {
-  			this.tapEvents();
-  			this.loadRooms();
-
-  		}
+  		
   	}
 
   	public tapEvents() {
@@ -244,12 +244,7 @@ export class HomeViewPage {
    		return prompt;
    	}
 
-   	public loadRooms() {
-   		this.homeViewServ.getRooms().subscribe(response => {
-   			this.room_data = response.rooms;
-   			console.log("OK");
-   		})
-   	}
+   	
 
 	public isEmpty(text: string) {
    		if(text === "" || text == null) {

@@ -1,0 +1,55 @@
+page-appliances {
+.scroll-content {
+   overflow-y: auto !important;
+}
+
+
+.card-room {
+
+  
+  ion-card {
+  
+  
+  background-color: #4DB6AC !important;
+   
+
+ position: relative;
+  width:120px;
+  height:140px;
+  
+  margin: 10px 5px 10px 10px ;
+
+
+  }
+  ion-card-header{
+  font-size:18px;
+  font-weight:bold;
+  padding:50px 0 0 0 ;
+  }
+}
+
+.add-card {
+ion-card {
+  
+  
+  background-color: #FFB74D !important;
+   
+
+ position: relative;
+  width:120px;
+  height:140px;
+
+
+  }
+  ion-card-header{
+  font-size:20px;
+  font-weight:bold;
+  padding:50px 0 0 0 ;
+  }
+  
+}
+
+}
+
+
+

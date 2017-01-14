@@ -9,6 +9,8 @@ import { AuthService } from '../providers/authservice';
 import { HomeService } from '../providers/homeservice';
 import { HomeViewService } from '../providers/homeviewservice';
 import { HomeUsersPage } from '../pages/homeusers/homeusers';
+import { RoomsPage} from '../pages/rooms/rooms';
+import { AppliancesPage } from '../pages/appliances/appliances';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { HomeUsersPage } from '../pages/homeusers/homeusers';
     LoginPage,
     RegisterPage,
     HomeViewPage,
-    HomeUsersPage
+    HomeUsersPage,
+    RoomsPage,
+    AppliancesPage
     
   ],
   imports: [
@@ -30,7 +34,9 @@ import { HomeUsersPage } from '../pages/homeusers/homeusers';
     LoginPage,
     RegisterPage,
     HomeViewPage,
-    HomeUsersPage
+    HomeUsersPage,
+    RoomsPage,
+    AppliancesPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService,HomeService,HomeViewService]
 })

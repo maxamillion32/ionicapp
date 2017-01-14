@@ -52,7 +52,8 @@ export class HomeViewService {
       return this.http.post(`${this.serverApi}/home/${this.home_data._id}/room`,body, {headers})
         .map(res => res.json())
         .map(res => {
-          if(res.code === 'ADD-SUCCESS') {
+          console.log(res);
+          if(res.code === 'CREATE-SUCCESS') {
             console.log("SUccess");
           }
          return res;
@@ -92,4 +93,85 @@ export class HomeViewService {
           return res;
         })
     }
-  }
+
+    public deleteUser(user) {
+      let headers = new Headers;
+      headers.append('Content-Type', 'application/json');
+      headers.append('x-access-token', String(localStorage.getItem('auth_token')));
+      return this.http.delete(`${this.serverApi}/home/${this.home_data._id}/user/${user._id}`,{headers})
+      .map(res=>res.json())
+      .map(res => {
+          console.log(res);
+          if(res.code === 'DELETE-SUCCESS') {
+            console.log("User deleted");
+
+          }
+          return res;
+        })
+
+    }
+
+    public deleteRoom(room) {
+      let headers = new Headers;
+      headers.append('Content-Type', 'application/json');
+      headers.append('x-access-token', String(localStorage.getItem('auth_token')));
+      return this.http.delete(`${this.serverApi}/home/${this.home_data._id}/room/${room._id}`,{headers})
+      .map(res=>res.json())
+      .map(res => {
+          console.log(res);
+          if(res.code === 'DELETE-SUCCESS') {
+            console.log("Room deleted");
+
+          }
+          return res;
+        })
+
+    }
+
+    public getAppliances(room) {
+       let headers = new Headers;
+      headers.append('Content-Type', 'application/json');
+      headers.append('x-access-token', String(localStorage.getItem('auth_token')));
+      return this.http.get(`${this.serverApi}/home/${this.home_data._id}/room/${room._id}/appliance`,{headers})
+        .map(res=>res.json())
+        .map(res => {
+          
+          return res;
+        })
+    }
+
+       public addAppliance(room, name: string, type: string, description: string, id: number) {
+      let headers = new Headers;
+      headers.append('Content-Type', 'application/json');
+      headers.append('x-access-token', String(localStorage.getItem('auth_token')));
+      let body = JSON.stringify({appliance_name: name,appliance_type: type, appliance_description: description, appliance_id: id });
+      return this.http.post(`${this.serverApi}/home/${this.home_data._id}/room/${room._id}/appliance`,body, {headers})
+        .map(res => res.json())
+        .map(res => {
+          console.log(res);
+          if(res.code === 'CREATE-SUCCESS') {
+            console.log("SUccess");
+          }
+         return res;
+       })
+
+    }
+
+     public deleteAppliance(room,appliance) {
+      let headers = new Headers;
+      headers.append('Content-Type', 'application/json');
+      headers.append('x-access-token', String(localStorage.getItem('auth_token')));
+      return this.http.delete(`${this.serverApi}/home/${this.home_data._id}/room/${room._id}/appliance/${appliance._id}`,{headers})
+      .map(res=>res.json())
+      .map(res => {
+          console.log(res);
+          if(res.code === 'DELETE-SUCCESS') {
+            console.log("Room deleted");
+
+          }
+          return res;
+        })
+
+    }
+
+}

@@ -30,47 +30,4 @@ page-homeview {
    overflow-y: auto !important;
 }
 
-
-.card-room {
-
-  
-  ion-card {
-  
-  
-  background-color: #4DB6AC !important;
-   
-
- position: relative;
-  width:130px;
-  height:140px;
-
-
-  }
-  ion-card-header{
-  font-size:20px;
-  font-weight:bold;
-  padding:30px 0 0 0 ;
-  }
-}
-
-.add-card {
-ion-card {
-  
-  
-  background-color: #FFB74D !important;
-   
-
- position: relative;
-  width:130px;
-  height:140px;
-
-
-  }
-  ion-card-header{
-  font-size:20px;
-  font-weight:bold;
-  padding:50px 0 0 0 ;
-  }
-  
-}
 }
