@@ -11,7 +11,7 @@ export class HomeService {
 	private homeYet: Boolean = false;
  
 
-	private serverApi= 'http://localhost:8080';
+	private serverApi= 'http://ec2-54-145-228-191.compute-1.amazonaws.com:8080';
 
   constructor(public http: Http, private  authServ: AuthService) {
    

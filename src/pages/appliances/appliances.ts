@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {ActionSheetController,NavController, NavParams,ToastController,AlertController,LoadingController } from 'ionic-angular';
+import {ModalController, ActionSheetController,NavController, NavParams,ToastController,AlertController,LoadingController } from 'ionic-angular';
 import { HomeViewPage } from '../homeview/homeview';
 import { HomeViewService } from '../../providers/homeviewservice';
-
+import { ApplianceViewPage } from '../applianceview/applianceview';
 /*
   Generated class for the Appliances page.
 
@@ -16,7 +16,7 @@ import { HomeViewService } from '../../providers/homeviewservice';
 export class AppliancesPage {
 	private room_data = this.navParams.get('room_data');
 	private appliance_data ;
- 	constructor(public actionCtrl:ActionSheetController, public loadingCtrl: LoadingController, public toastCtrl:ToastController,public alertCtrl:AlertController, private homeViewServ: HomeViewService, public navCtrl: NavController, public navParams: NavParams) {
+ 	constructor(public modalCtrl:ModalController, public actionCtrl:ActionSheetController, public loadingCtrl: LoadingController, public toastCtrl:ToastController,public alertCtrl:AlertController, private homeViewServ: HomeViewService, public navCtrl: NavController, public navParams: NavParams) {
 
   	this.loadAppliances();
 
@@ -136,10 +136,11 @@ export class AppliancesPage {
    	
    			setTimeout(() => {
            		loading.dismiss();
-           		this.navCtrl.push(ApplianceViewPage, {
+           		let applianceview =this.modalCtrl.create(ApplianceViewPage, {
            		 room_data: this.room_data,
            		 appliance_data: appliance,
           		 });
+           		applianceview.present();
    			});
    		
    	}

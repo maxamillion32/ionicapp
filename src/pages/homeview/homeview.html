@@ -16,6 +16,20 @@
 <ion-content class="card-background-page" padding >
 <div *ngIf="firstTimeView==true">
 
+  <ion-card *ngIf="device_status==false">
+  <ion-title class="code"> Set up your raspberry pi </ion-title>
+  <div class="card-subtitle"> </div>
+  
+   You need to set up raspberry pi to get the device working. THe code is
+ 
+  <ion-item>
+  
+   <button ion-item>
+      <ion-icon name='md-code-working' item-left></ion-icon>
+      {{device_code}}
+    </button>
+    </ion-item>
+    </ion-card>
 
   <ion-card>
     <img src="http://media.gettyimages.com/videos/large-suburban-home-at-night-with-illuminated-interior-temple-texas-video-id82146617?s=640x640"/>
@@ -23,13 +37,13 @@
     <div class="card-subtitle">You are about to setup your home and you are gonna enjoy this ride.</div>
   </ion-card>
   	
-	<button ion-button icon-left (click)="initializeSetup()">
-  	<ion-icon name="home"></ion-icon>
+	<button ion-button icon-left class="kick-button" (click)="initializeSetup()">
+  	<ion-icon name="home" ></ion-icon>
   	Kick start your home!
    
 	</button>
- 
- 
+
+
 
 </div>
 <div *ngIf = "firstTimeView == false">

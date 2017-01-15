@@ -7,6 +7,9 @@ page-homeview {
     text-align: center;
 
   }
+  .kick-button {
+  margin-left:15%;
+  }
 
   .card-title {
     position: absolute;
@@ -16,6 +19,7 @@ page-homeview {
     font-weight: bold;
     color: #fff;
   }
+
 
   .card-subtitle {
     font-size: 1.1em;
@@ -28,6 +32,9 @@ page-homeview {
 }
 .scroll-content {
    overflow-y: auto !important;
+}
+.code {
+  margin-bottom : 20px;
 }
 
 }

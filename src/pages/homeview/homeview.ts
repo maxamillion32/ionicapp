@@ -19,9 +19,13 @@ import { RoomsPage } from '../rooms/rooms';
 })
 export class HomeViewPage {
 	private tab1; private tab2;
+	private device_status = false;
+	private device_code;
+
 	private room_data;
 	private i=0;
   	private firstTimeView: boolean =false;	
+
     private data = this.navParams.get('home_data');
     private count; // this is to count the alert phase 1 => firstAlert, 2=> addUseraler etc.
     private skipRoom =false;
@@ -33,6 +37,7 @@ export class HomeViewPage {
   		if(this.homeViewServ.isFirstTimeView(this.data)) {
   			this.firstTimeView = true;
   			this.count = 0;
+  			this.isDeviceAuthenticated();
   			
   			 			
   		}
@@ -40,6 +45,16 @@ export class HomeViewPage {
   		
   	}
 
+  	public isDeviceAuthenticated() {
+  		if(this.data.device_status == true) {
+  			this.device_status = true;
+  			return true;
+  		}
+  		else {
+  			this.device_code = this.data.device_auth_code;
+  			return false
+  		}
+  	}
   	public tapEvents() {
   		console.log("Why aint this getting executed");
   		let prompt =this.addRoomToHome();

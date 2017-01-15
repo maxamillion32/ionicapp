@@ -14,7 +14,7 @@ import { HomeService } from '../homeservice';
 @Injectable()
 export class HomeViewService {
 	private home_data;
-  private serverApi= 'http://localhost:8080';
+  private serverApi= 'http://ec2-54-145-228-191.compute-1.amazonaws.com:8080';
   constructor(public http: Http) {
     console.log('Hello Homeviewservice Provider');
   }
@@ -174,4 +174,33 @@ export class HomeViewService {
 
     }
 
-}
+    public changeLightStatus(room,appliance,event) {
+      let headers = new Headers;
+      headers.append('Content-Type', 'application/json');
+      headers.append('x-access-token', String(localStorage.getItem('auth_token')));
+      let id= appliance.id;
+      console.log("Hel");
+      let event_state = 0;
+      
+      if(event) 
+         event_state =1;
+      else
+        event_state =0;
+      console.log(event_state);
+              
+      let body = JSON.stringify({ appliance_id: id,appliance_status: { state: event_state, read_state: event_state} });
+
+      return this.http.put(`${this.serverApi}/home/${this.home_data._id}/room/${room._id}/appliance/${appliance._id}`,body, {headers})
+        .map(res => res.json())
+        .map(res => {
+          console.log(res);
+          if(res.code === 'UPDATE-SUCCESS') {
+            console.log("SUccess");
+          }
+         return res;
+
+
+      });
+
+    }
+  }
